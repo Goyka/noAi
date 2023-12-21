@@ -3,26 +3,26 @@ import { useJoin } from "../hooks/useJoin";
 import { inputStyle, buttonStyle } from "./Login";
 
 function Join() {
-  const { onEmailHandler, onValCodeHandler, onSubmitHandler } = useJoin();
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [isValCodeRight, setIsValCodeRight] = useState(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [valCode, setValCode] = useState<string>("");
+  const { onEmailHandler, onValCodeHandler, onSubmitHandler } = useJoin();
 
   return (
-    <div className="w-[95vw] h-[100vh] flex flex-col font-semibold items-center justify-center">
+    <div className={bodyWrapStyle}>
       <label htmlFor="email">이메일 주소</label>
-      <div>
+      <div className="w-[40vw]">
         <input
           type="text"
           id="email"
           value={email}
-          className="w-[33vw] h-[5vh] border-gray-200 border shadow-sm rounded-lg rounded-r-none mb-2"
+          className="w-[89%] h-[5vh] border-gray-200 border shadow-sm rounded-lg rounded-r-none mb-2"
           onChange={(e) => setEmail(e.target.value)}
         />
         <button
-          className="bg-lime-300 px-2 py-[7px] rounded-lg rounded-l-none"
+          className="bg-lime-300 w-[11%]  py-[7px] rounded-lg rounded-l-none"
           onClick={() => onEmailHandler(email, setIsEmailSent)}
         >
           인증
@@ -66,3 +66,6 @@ function Join() {
 }
 
 export default Join;
+
+export const bodyWrapStyle =
+  "w-[95vw] h-[100vh] flex flex-col font-semibold items-center justify-center";
