@@ -19,12 +19,14 @@ export const useJoin = () => {
   };
 
   const onValCodeHandler = async (
-    setIsValCodeRight: React.Dispatch<React.SetStateAction<boolean>>
+    setIsValCodeRight: React.Dispatch<React.SetStateAction<boolean>>,
+    setIsEmailSent: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
     try {
       const res = await api.get("/join/code");
       if (res.status === 200) {
         setIsValCodeRight(true);
+        setIsEmailSent(false);
       }
     } catch (err) {
       console.error(err);
