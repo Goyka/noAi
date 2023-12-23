@@ -22,26 +22,29 @@ function Join() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <button
-          className="bg-lime-300 w-[11%]  py-[7px] rounded-lg rounded-l-none"
+          className="bg-lime-300 w-[11%] py-[7px] rounded-lg rounded-l-none cursor-pointer"
           onClick={() => onEmailHandler(email, setIsEmailSent)}
         >
           인증
         </button>
       </div>
       {isEmailSent && (
-        <>
-          <label htmlFor="valCode">이메일 인증번호</label>
+        <div className="w-[40vw]">
           <input
             type="text"
             id="valCode"
             value={valCode}
-            className={inputStyle}
+            placeholder=" 이메일로 전송 된 인증 번호를 입력하세요."
+            className="w-[89%] h-[5vh] border-gray-200 border shadow-sm rounded-lg rounded-r-none my-2"
             onChange={(e) => setValCode(e.target.value)}
           />
-          <button onClick={() => onValCodeHandler(setIsValCodeRight)}>
-            인증코드 제출
+          <button
+            className="bg-lime-300 w-[11%] py-[7px] rounded-lg rounded-l-none cursor-pointer"
+            onClick={() => onValCodeHandler(setIsValCodeRight, setIsEmailSent)}
+          >
+            제출
           </button>
-        </>
+        </div>
       )}
       <label htmlFor="password">비밀번호</label>
       <input
