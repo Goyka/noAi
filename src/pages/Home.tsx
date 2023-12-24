@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { bodyWrapStyle } from "./Join";
 import { getUserDataApi } from "../apis/getUserDataApi";
 import { userDataType } from "../apis/getUserDataApi";
+import Card from "../components/Card";
 
 function Home() {
-  const [datas, setDatas] = useState<userDataType | undefined>();
+  const [datas, setDatas] = useState<userDataType[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,18 +16,7 @@ function Home() {
 
   return (
     <div className={bodyWrapStyle}>
-      {datas &&
-        datas.map((data: userDataType) => {
-          <>
-            <img src={data.profile} alt="pic" />
-            <h4>
-              {data.major}
-              {data.name}
-            </h4>
-            <span>{data.gender}</span>
-            <p>{data.desc}</p>
-          </>;
-        })}
+      <Card datas={datas} />
     </div>
   );
 }

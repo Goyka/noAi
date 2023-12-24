@@ -1,16 +1,17 @@
 import api from "../apis/axiosInstance";
 
 export interface userDataType {
-  map(arg0: (data: userDataType) => void): import("react").ReactNode;
+  map(arg0: (data: userDataType[]) => void): import("react").ReactNode;
   profile: string;
   name: string;
   major: string;
   gender: string;
   desc: string;
+  id: number;
 }
 
 export const getUserDataApi = async (
-  setDatas: React.Dispatch<React.SetStateAction<userDataType | undefined>>
+  setDatas: React.Dispatch<React.SetStateAction<userDataType[]>>
 ) => {
   try {
     const res = await api.get("/home");
@@ -19,7 +20,7 @@ export const getUserDataApi = async (
       const dataArr = res.data;
       setDatas(
         dataArr.map((item: userDataType) => {
-          item.profile, item.name, item.major, item.gender, item.desc;
+          item.profile, item.name, item.major, item.gender, item.desc, item.id;
         })
       );
     }

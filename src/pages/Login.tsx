@@ -10,10 +10,6 @@ interface LoginType {
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const formData: LoginType = {
-    email,
-    password,
-  };
   const navigate = useNavigate();
 
   const onLoginHandler = async () => {
@@ -23,6 +19,11 @@ function Login() {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const formData: LoginType = {
+    email,
+    password,
   };
 
   return (
