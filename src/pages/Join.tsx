@@ -3,11 +3,12 @@ import { useJoin } from "../hooks/useJoin";
 import { inputStyle, buttonStyle } from "./Login";
 
 function Join() {
-  const [isEmailSent, setIsEmailSent] = useState(false);
-  const [isValCodeRight, setIsValCodeRight] = useState(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [valCode, setValCode] = useState<string>("");
+  const [isEmailSent, setIsEmailSent] = useState(false);
+  const [isValCodeRight, setIsValCodeRight] = useState(false);
+
   const { onEmailHandler, onValCodeHandler, onSubmitHandler } = useJoin();
 
   return (
