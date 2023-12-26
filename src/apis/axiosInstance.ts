@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://prac.dev/api",
+  baseURL: `${import.meta.env.VITE_SERVER_API_KEY}`,
   headers: {
     "Content-Type": "application/json",
   },
